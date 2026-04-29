@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resume Analyzer | Improve Your CV Fast</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Instantly analyze your resume, get actionable feedback, identify missing skills, and improve your chances of landing your dream job with our Smart Resume Analyzer.">
+    <meta name="keywords" content="resume analyzer, ats checker, resume score, cv improvement, career tools, professional resume review">
+    <meta name="author" content="Smart Resume">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Smart Resume Analyzer | Professional CV Checker">
+    <meta property="og:description" content="Get instant, actionable feedback on your resume. Improve your score, identify missing skills, and land more interviews.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.smartresumeanalyzer.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PDF.js for parsing PDF resumes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Mammoth.js for parsing DOCX resumes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Smart Resume Analyzer</h1>
+            <p>Instantly analyze your resume content and discover ways to improve.</p>
+        </header>
+
+        <div class="app-grid">
+            <!-- Input Section -->
+            <section class="card input-section">
+                <div class="input-header">
+                    <h2>Paste Your Resume</h2>
+                    <label for="file-upload" class="file-upload-btn">
+                        Upload Resume
+                        <input type="file" id="file-upload" accept=".txt,.pdf,.docx">
+                    </label>
+                </div>
+                <textarea id="resume-input" placeholder="Paste your resume text here..."></textarea>
+                <div class="action-bar">
+                    <button id="analyze-btn" class="primary-btn">Analyze Resume</button>
+                    <button id="clear-btn" class="secondary-btn">Clear</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card results-section hidden" id="results-section">
+                <h2>Analysis Results</h2>
+
+                <div class="score-container">
+                    <div class="score-circle">
+                        <svg>
+                            <circle cx="60" cy="60" r="50" class="bg-circle"></circle>
+                            <circle cx="60" cy="60" r="50" class="progress-circle" id="score-progress"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <span id="score-value">0</span><span class="score-total">/10</span>
+                        </div>
+                    </div>
+                    <div class="score-label" id="score-label">Needs Improvement</div>
+                </div>
+
+                <div class="feedback-group">
+                    <h3>Identified Skills</h3>
+                    <div class="tags-container" id="found-skills">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <div class="feedback-group">
+                    <h3>Missing Key Skills</h3>
+                    <div class="tags-container" id="missing-skills">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <div class="feedback-group">
+                    <h3>Suggestions for Improvement</h3>
+                    <ul class="suggestions-list" id="suggestions-list">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
