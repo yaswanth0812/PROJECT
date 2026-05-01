@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <button id="btn">Download PDF</button>
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            const htmlString = `
+            <div style="width: 800px; padding: 40px; background-color: white; color: black; font-family: Helvetica, Arial, sans-serif; line-height: 1.6;">
+                <h1 style="text-align: center; color: red;">Test PDF</h1>
+                <p>If you see this, string-based PDF generation works!</p>
+            </div>`;
+            
+            const opt = {
+                margin:       0.5,
+                filename:     'test.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(htmlString).save();
+        });
+    </script>
+</body>
+</html>
